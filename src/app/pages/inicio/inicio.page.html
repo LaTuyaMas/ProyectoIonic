@@ -1,5 +1,20 @@
 <app-header></app-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+
+  <ion-list>
+    <ion-item *ngFor="let item of data">
+      <ion-img src="/assets/shapes.svg" style="width: 300px; height: 300px"></ion-img>
+    </ion-item>
+  </ion-list>
+
+  <ion-infinite-scroll (ionInfinite)="loadData($event)">
+
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading...">
+    </ion-infinite-scroll-content>
+
+  </ion-infinite-scroll>
 
 </ion-content>
