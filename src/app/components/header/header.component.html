@@ -1,16 +1,14 @@
 <ion-header>
   <ion-toolbar>
 
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/" text=""></ion-back-button>
-    </ion-buttons>
+    <ion-img slot="start" src="/assets/appIcon.png" style="width: 80px; height: 80px"></ion-img>
 
-    <ion-title class="ion-text-center">{{titulo}}</ion-title>
+    <ion-title class="ion-text-center">
+      <p class="titulo">MySeries</p>
+    </ion-title>
 
     <ion-buttons slot="end">
-      <ion-button>
-        <ion-icon color="danger" name="heart"></ion-icon>
-      </ion-button>
+      <ion-menu-button menu="menuAutor" color="danger"></ion-menu-button>
     </ion-buttons>
 
   </ion-toolbar>
