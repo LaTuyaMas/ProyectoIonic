@@ -1,9 +1,20 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>tabs</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-tabs>
+  <ion-tab-bar slot="bottom" color="danger">
 
-<ion-content>
+    <ion-tab-button tab="inicio">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Inicio</ion-label>
+    </ion-tab-button>
 
-</ion-content>
+    <ion-tab-button tab="search">
+      <ion-icon name="search"></ion-icon>
+      <ion-label>Buscar</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="categories">
+      <ion-icon name="albums"></ion-icon>
+      <ion-label>Categorias</ion-label>
+    </ion-tab-button>
+
+  </ion-tab-bar>
+</ion-tabs>
