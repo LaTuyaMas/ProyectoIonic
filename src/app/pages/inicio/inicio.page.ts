@@ -1,5 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {IonInfiniteScroll} from "@ionic/angular";
+import {Serie} from "../../common/serie";
+import {SerieService} from "../../services/serie.service";
 
 @Component({
   selector: 'app-inicio',
@@ -9,21 +11,30 @@ import {IonInfiniteScroll} from "@ionic/angular";
 export class InicioPage implements OnInit {
 
   @ViewChild(IonInfiniteScroll, {static: false})infiniteScroll!: IonInfiniteScroll
-  data: any[] = Array(3);
-  constructor() { }
+  series: Serie[] = [];
+  constructor(private serieService: SerieService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.listSeries();
+  }
+
+  listSeries(): void {
+    this.serieService.getSerieList().subscribe(
+      (data: any) => {
+        this.series = data;
+      }
+    );
   }
 
   loadData(event: any) {
     setTimeout(() => {
-      if (this.data.length > 30) {
+      if (this.series.length > 30) {
         event.target.complete();
         this.infiniteScroll.disabled = true;
         return;
       }
       const nuevoArray = Array(3);
-      this.data.push(...nuevoArray);
+      this.series.push(...nuevoArray);
       event.target.complete();
     }, 1000);
   }
