@@ -13,4 +13,8 @@ export class SerieService {
   getSerieList(): Observable<Serie[]> {
     return this.http.get<Serie[]>(this.baseURL+"/");
   }
+
+  getSerie(id : string): Observable<Serie> {
+    return this.http.get<Serie>(this.baseURL+"/serie/"+id);
+  }
 }
