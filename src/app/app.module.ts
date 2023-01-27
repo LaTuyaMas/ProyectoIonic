@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule} from "@angular/common/http";
 import {ComponentsModule} from "./components/components.module";
+import {SwiperModule} from "swiper/angular";
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,7 +17,8 @@ import {ComponentsModule} from "./components/components.module";
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-    ComponentsModule],
+    ComponentsModule,
+    SwiperModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

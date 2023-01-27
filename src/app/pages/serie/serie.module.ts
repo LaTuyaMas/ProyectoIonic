@@ -8,15 +8,17 @@ import { SeriePageRoutingModule } from './serie-routing.module';
 
 import { SeriePage } from './serie.page';
 import {ComponentsModule} from "../../components/components.module";
+import {SwiperModule} from "swiper/angular";
 
 @NgModule({
-    imports: [
-        CommonModule,
-        FormsModule,
-        IonicModule,
-        SeriePageRoutingModule,
-        ComponentsModule
-    ],
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    SeriePageRoutingModule,
+    ComponentsModule,
+    SwiperModule
+  ],
   declarations: [SeriePage]
 })
 export class SeriePageModule {}

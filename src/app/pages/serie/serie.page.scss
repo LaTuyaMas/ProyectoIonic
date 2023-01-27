@@ -1,0 +1,36 @@
+ion-img {
+  height: 350px;
+  text-align: center;
+  display: block;
+  margin: auto;
+}
+
+.titulo {
+  font-family: Georgia, sans-serif;
+  font-size: xxx-large;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.categorias {
+  font-family: "Arial Black", sans-serif;
+  font-size: large;
+}
+
+.normal {
+  font-family: Arial, sans-serif;
+  font-size: large;
+}
+
+ion-item {
+  --background: var(--ion-color-primary);
+}
+
+ion-item-group {
+  width: 100%;
+}
+
+hr {
+  border-top: 4px solid #000c31;
+}
