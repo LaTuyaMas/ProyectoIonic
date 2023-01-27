@@ -12,6 +12,8 @@ export class InicioPage implements OnInit {
 
   @ViewChild(IonInfiniteScroll, {static: false})infiniteScroll!: IonInfiniteScroll
   series: Serie[] = [];
+  pages = 0;
+
   constructor(private serieService: SerieService) { }
 
   ngOnInit(): void {
@@ -22,13 +24,14 @@ export class InicioPage implements OnInit {
     this.serieService.getSerieList().subscribe(
       (data: any) => {
         this.series = data;
+        this.pages = data.length;
       }
     );
   }
 
   loadData(event: any) {
     setTimeout(() => {
-      if (this.series.length > 30) {
+      if (this.series.length >= this.pages) {
         event.target.complete();
         this.infiniteScroll.disabled = true;
         return;

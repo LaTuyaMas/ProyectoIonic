@@ -5,6 +5,7 @@
 </ion-item>
 
 <ion-content class="ion-padding" color="primary">
+
   <ion-list>
     <ion-card *ngFor="let s of series | filtro: textoBuscar: 'title'">
       <ion-card-header color="success">
@@ -19,6 +20,15 @@
         </ion-label>
       </ion-card-content>
     </ion-card>
-
   </ion-list>
+
+  <ion-infinite-scroll (ionInfinite)="loadData($event)">
+
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading...">
+    </ion-infinite-scroll-content>
+
+  </ion-infinite-scroll>
+
 </ion-content>

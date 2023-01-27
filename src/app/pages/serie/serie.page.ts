@@ -28,7 +28,7 @@ export class SeriePage implements OnInit {
 
   ngOnInit(): void {
     const params = this.activatedRoute.snapshot.params;
-    this.serieService.getSerie(params['_id']).subscribe((res:any) => {
+    this.serieService.getSerie(params['id']).subscribe((res:any) => {
       this.serie = res;
       console.log(this.serie);
     })

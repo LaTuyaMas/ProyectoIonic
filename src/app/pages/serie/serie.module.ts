@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { SeriePageRoutingModule } from './serie-routing.module';
 
 import { SeriePage } from './serie.page';
+import {ComponentsModule} from "../../components/components.module";
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    SeriePageRoutingModule
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        SeriePageRoutingModule,
+        ComponentsModule
+    ],
   declarations: [SeriePage]
 })
 export class SeriePageModule {}
