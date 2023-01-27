@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SerieService} from "../../services/serie.service";
 
 @Component({
   selector: 'app-search',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchPage implements OnInit {
 
-  constructor() { }
+  textoBuscar = '';
+  series: any[] = [];
+
+  constructor(private serieService: SerieService) { }
 
   ngOnInit() {
+    this.serieService.getSerieList().subscribe(series => {
+      this.series = series;
+    });
   }
 
+  buscar(event: any) {
+    this.textoBuscar = event.detail.value;
+  }
 }

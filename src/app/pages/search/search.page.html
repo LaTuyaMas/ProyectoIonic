@@ -1,9 +1,24 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>search</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header></app-header>
 
-<ion-content>
+<ion-item color="secondary">
+  <ion-searchbar animated="true" (ionChange)="buscar( $event)" color="light"></ion-searchbar>
+</ion-item>
 
+<ion-content class="ion-padding" color="primary">
+  <ion-list>
+    <ion-card *ngFor="let s of series | filtro: textoBuscar: 'title'">
+      <ion-card-header color="success">
+        <ion-title><b>{{s.title}}</b></ion-title>
+      </ion-card-header>
+
+      <ion-img src="{{s.images[0]}}"></ion-img>
+
+      <ion-card-content class="ion-text-center">
+        <ion-label *ngFor="let c of s.categories">
+          |{{c}}|
+        </ion-label>
+      </ion-card-content>
+    </ion-card>
+
+  </ion-list>
 </ion-content>

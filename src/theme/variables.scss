@@ -90,6 +90,14 @@
   --ion-color-tabbar-contrast-rgb: 255, 255, 255;
   --ion-color-tabbar-shade: #3759ff;
   --ion-color-tabbar-tint: #0024e0;
+
+  /** searchbar **/
+  --ion-color-searchbar: #89ffee;
+  --ion-color-searchbar-rgb: 137, 255, 238;
+  --ion-color-searchbar-contrast: #ffffff;
+  --ion-color-searchbar-contrast-rgb: 255, 255, 255;
+  --ion-color-searchbar-shade: #b9fff4;
+  --ion-color-searchbar-tint: #4ce8d1;
 }
 
   .ion-color-toolbar {
@@ -101,14 +109,23 @@
     --ion-color-tint: var(--ion-color-toolbar-tint) !important;
   }
 
-.ion-color-tabbar {
-  --ion-color-base: var(--ion-color-tabbar) !important;
-  --ion-color-base-rgb: var(--ion-color-tabbar-rgb) !important;
-  --ion-color-contrast: var(--ion-color-tabbar-contrast) !important;
-  --ion-color-contrast-rgb: var(--ion-color-tabbar-contrast-rgb) !important;
-  --ion-color-shade: var(--ion-color-tabbar-shade) !important;
-  --ion-color-tint: var(--ion-color-tabbar-tint) !important;
-}
+  .ion-color-tabbar {
+    --ion-color-base: var(--ion-color-tabbar) !important;
+    --ion-color-base-rgb: var(--ion-color-tabbar-rgb) !important;
+    --ion-color-contrast: var(--ion-color-tabbar-contrast) !important;
+    --ion-color-contrast-rgb: var(--ion-color-tabbar-contrast-rgb) !important;
+    --ion-color-shade: var(--ion-color-tabbar-shade) !important;
+    --ion-color-tint: var(--ion-color-tabbar-tint) !important;
+  }
+
+  .ion-color-searchbar {
+    --ion-color-base: var(--ion-color-searchbar) !important;
+    --ion-color-base-rgb: var(--ion-color-searchbar-rgb) !important;
+    --ion-color-contrast: var(--ion-color-searchbar-contrast) !important;
+    --ion-color-contrast-rgb: var(--ion-color-searchbar-contrast-rgb) !important;
+    --ion-color-shade: var(--ion-color-searchbar-shade) !important;
+    --ion-color-tint: var(--ion-color-searchbar-tint) !important;
+  }
 
 @media (prefers-color-scheme: dark) {
   /*
