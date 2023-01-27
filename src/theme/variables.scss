@@ -82,6 +82,14 @@
   --ion-color-toolbar-contrast-rgb: 255, 255, 255;
   --ion-color-toolbar-shade: #6aa2c5;
   --ion-color-toolbar-tint: #79abdc;
+
+  /** tabbar **/
+  --ion-color-tabbar: #163cff;
+  --ion-color-tabbar-rgb: 22, 60, 255;
+  --ion-color-tabbar-contrast: #ffffff;
+  --ion-color-tabbar-contrast-rgb: 255, 255, 255;
+  --ion-color-tabbar-shade: #3759ff;
+  --ion-color-tabbar-tint: #0024e0;
 }
 
   .ion-color-toolbar {
@@ -92,6 +100,15 @@
     --ion-color-shade: var(--ion-color-toolbar-shade) !important;
     --ion-color-tint: var(--ion-color-toolbar-tint) !important;
   }
+
+.ion-color-tabbar {
+  --ion-color-base: var(--ion-color-tabbar) !important;
+  --ion-color-base-rgb: var(--ion-color-tabbar-rgb) !important;
+  --ion-color-contrast: var(--ion-color-tabbar-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-tabbar-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-tabbar-shade) !important;
+  --ion-color-tint: var(--ion-color-tabbar-tint) !important;
+}
 
 @media (prefers-color-scheme: dark) {
   /*
