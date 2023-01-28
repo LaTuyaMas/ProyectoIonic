@@ -1,10 +1,13 @@
 <app-header></app-header>
 
 <ion-content color="primary">
+  <hr class="barra-arriba">
 
-  <p class="titulo">{{serie.title}}</p>
+  <ion-item color="secondary" class="ion-text-center">
+    <ion-label id="titulo">{{serie.title}}</ion-label>
+  </ion-item>
 
-  <hr>
+  <hr class="barra-abajo">
 
   <swiper [pagination]="true">
     <ng-template *ngFor="let image of serie.images" swiperSlide>
@@ -12,22 +15,27 @@
     </ng-template>
   </swiper>
 
-  <hr>
+  <hr class="barra-arriba">
 
-  <p class="ion-text-center">
+  <ion-item color="secondary" class="ion-text-center">
     <ion-label class="categorias" *ngFor="let c of serie.categories">
       \{{c}}/
     </ion-label>
-  </p>
+  </ion-item>
 
-  <hr>
+  <hr class="barra-medio">
 
-  <p class="ion-text-center">
+  <ion-item color="secondary" class="ion-text-center">
     <ion-label class="categorias">Episodios: </ion-label><ion-label class="normal">{{serie.episodes}} </ion-label>
     <ion-label class="categorias">Año de emisión: </ion-label><ion-label class="normal">{{serie.year}}</ion-label>
+  </ion-item>
+
+  <hr class="barra-abajo">
+
+  <h2> SINOPSIS </h2>
+
+  <p class="ion-text-justify ion-padding">
+    <ion-label class="normal">{{serie.plot}}</ion-label>
   </p>
-
-  <hr>
-
 
 </ion-content>

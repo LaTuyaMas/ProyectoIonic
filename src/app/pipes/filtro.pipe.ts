@@ -7,13 +7,14 @@ export class FiltroPipe implements PipeTransform {
 
   transform(lista: any[],
             texto: string,
-            columna: string): any[] {
+            columna1: string,
+            columna2: string): any[] {
     if ( texto === '') {
       return lista;
     }
     texto = texto.toLowerCase();
     return lista.filter(
-      item => item[columna].toLowerCase().includes(texto)
+      item => (item[columna1].toLowerCase().includes(texto) || item[columna2].toLowerCase().includes(texto))
     );
   }
 

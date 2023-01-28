@@ -5,12 +5,23 @@ ion-img {
   margin: auto;
 }
 
-.titulo {
+#titulo {
   font-family: Georgia, sans-serif;
   font-size: xxx-large;
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.barra-abajo {
+  margin-top: 0;
+}
+.barra-medio {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.barra-arriba {
+  margin-bottom: 0;
 }
 
 .categorias {
@@ -33,4 +44,10 @@ ion-item-group {
 
 hr {
   border-top: 4px solid #000c31;
+}
+
+h2 {
+  font-family: Arial, sans-serif;
+  font-weight: bolder;
+  text-align: center;
 }

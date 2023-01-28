@@ -34,11 +34,9 @@ export class SearchPage implements OnInit {
         this.infiniteScroll.disabled = true;
         return;
       }
-      if (this.textoBuscar == ''){
-        const nuevoArray = Array(3);
-        this.series.push(...nuevoArray);
-        event.target.complete();
-      }
+      const nuevoArray = Array(3);
+      this.series.push(...nuevoArray);
+      event.target.complete();
     }, 1000);
   }
 }
