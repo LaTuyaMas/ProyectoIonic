@@ -38,6 +38,18 @@ ion-item {
   --background: var(--ion-color-primary);
 }
 
+.form-item {
+  --background: var(--ion-color-toolbar);
+}
+
+.form-button {
+  --background: var(--ion-color-success);
+}
+
+.form-list {
+  --background: var(--ion-color-secondary);
+}
+
 ion-item-group {
   width: 100%;
 }
@@ -55,4 +67,16 @@ h2 {
 
 #plot {
   margin-top: 0;
+}
+
+.red{
+  color: var(--ion-color-danger);
+}
+
+.green{
+  color: var(--ion-color-success);
+}
+
+ion-content {
+  --background: var(--ion-color-primary);
 }

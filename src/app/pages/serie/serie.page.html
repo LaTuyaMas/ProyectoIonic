@@ -38,4 +38,63 @@
     <ion-text class="normal" id="plot">{{serie.plot}}</ion-text>
   </ion-item>
 
+  <hr class="barra-arriba">
+
+  <ion-button id="user-modal" expand="block">Abrir</ion-button>
+
+  <ion-modal trigger="user-modal" (willDismiss)="onWillDismiss($event)">
+    <ng-template>
+
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()">
+              <ion-icon name="arrow-back-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+
+          <ion-title>Puntua aquí</ion-title>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content class="ion-padding">
+        <form #formulario="ngForm" (ngSubmit)="onSubmit()">
+          <ion-list>
+
+            <ion-item class="form-item">
+              <ion-label>
+                Reseña Válida
+                <span [ngClass]="{'red':!formulario.valid, 'green':formulario.valid}">
+                  {{formulario.valid}}
+                </span>
+              </ion-label>
+            </ion-item>
+
+            <ion-item class="form-item">
+              <ion-label position="floating">Email</ion-label>
+              <ion-input type="text" name="email" [(ngModel)]="usuario.email"
+                         pattern="^([a-zA-Z0-9.])+@+([a-zA-Z])+\.+([a-zA-Z]{2,5})" required="true">
+              </ion-input>
+            </ion-item>
+
+            <ion-item class="form-item">
+              <ion-range name="rating" [(ngModel)]="usuario.score"
+                         min="0" max="10" step="1" snaps="true" color="tabbar"
+                         required="true">
+                <ion-label slot="start">0</ion-label>
+                <ion-label slot="end">10</ion-label>
+              </ion-range>
+            </ion-item>
+
+          </ion-list>
+
+          <ion-button expand="full" type="submit" [disabled]="formulario.invalid" class="form-button">
+            Confirmar
+          </ion-button>
+        </form>
+      </ion-content>
+
+    </ng-template>
+  </ion-modal>
+
 </ion-content>
