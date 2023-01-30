@@ -1,7 +1,29 @@
 <app-header></app-header>
 
-<ion-content class="ion-padding" color="primary">
+<ion-content color="primary">
 
+  <swiper [config]="options">
+    <ng-template swiperSlide *ngFor="let c of categories">
+      <ion-avatar (click)="listSeriesByCategorie(c)">
+        <ion-img src="{{c.icon}}"></ion-img>
+        <ion-text><b>{{c.name}}</b></ion-text>
+      </ion-avatar>
+    </ng-template>
+  </swiper>
 
+  <ion-list class="ion-padding">
+    <ion-card *ngFor="let s of series" [routerLink]="['/tabs/serie/', s._id]">
+      <ion-card-header color="success">
+        <ion-title class="ion-text-center"><b>{{s.title}}</b></ion-title>
+      </ion-card-header>
 
+      <ion-img src="{{s.images[0]}}"></ion-img>
+
+      <ion-card-content class="ion-text-center">
+        <ion-label *ngFor="let c of s.categories">
+          |{{c}}|
+        </ion-label>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
 </ion-content>
