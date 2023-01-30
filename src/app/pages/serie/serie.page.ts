@@ -12,6 +12,7 @@ import {IonModal} from "@ionic/angular";
 export class SeriePage implements OnInit {
   @ViewChild(IonModal) modal!: IonModal
 
+  //Constructor vacío para la serie
   serie: Serie = {
     _id: '',
     images: [''],
@@ -26,14 +27,16 @@ export class SeriePage implements OnInit {
     }]
   }
 
-  constructor(private serieService: SerieService, private activatedRoute: ActivatedRoute) { }
-
+  //Constructor vacío para user_score
   usuario: {email: string; score: number} =
     {
       email: '',
       score: 0
     };
 
+  constructor(private serieService: SerieService, private activatedRoute: ActivatedRoute) { }
+
+  //Coge la serie que fue seleccionada
   ngOnInit(): void {
     const params = this.activatedRoute.snapshot.params;
     this.serieService.getSerie(params['id']).subscribe((res:any) => {
@@ -42,6 +45,24 @@ export class SeriePage implements OnInit {
     })
   }
 
+  //Las 2 puntuaciones medias devuelven lo mismo
+  puntuacionMedia(): number{
+    let total = 0;
+    for(let i = 0; i < this.serie.user_score.length; i++) {
+      total += this.serie.user_score[i].score;
+    }
+    return total / this.serie.user_score.length;
+  }
+
+  puntuacionMedia2(): number{
+    let total = 0;
+    this.serie.user_score.forEach((user) => {
+      total += user.score;
+    });
+    return total / this.serie.user_score.length;
+  }
+
+  //Funciones para el formulario
   cancel(){
     this.modal.dismiss(null, 'cancel');
   }
@@ -52,10 +73,10 @@ export class SeriePage implements OnInit {
 
   onWillDismiss(event: any){
     if (event.detail.role === 'confirm') {
-      //this.serie.user_score.push()
       this.serie.user_score.push(this.usuario);
       console.log(this.serie);
-      this.serieService.updateSerie(this.serie._id, this.serie);
+      this.serieService.updateSerie(this.serie._id, this.serie).subscribe();
+      this.usuario = {email: '', score: 0};
     }
   }
 }

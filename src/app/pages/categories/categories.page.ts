@@ -36,6 +36,8 @@ export class CategoriesPage implements OnInit {
     this.series = [];
     this.serieService.getSerieList().subscribe(
       (data: any) => {
+        this.series = data.filter((serie: Serie) => serie.categories.includes(categorie.name));
+      /*
         data.forEach((serie: Serie) => {
           serie.categories.forEach((categorieS: string) => {
             if (categorieS == categorie.name) {
@@ -43,6 +45,7 @@ export class CategoriesPage implements OnInit {
             }
           });
         });
+       */
       }
     );
   }

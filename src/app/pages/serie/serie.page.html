@@ -3,12 +3,14 @@
 <ion-content color="primary">
   <hr class="barra-arriba">
 
+  <!-- Titulo en font diferente -->
   <ion-item color="secondary" class="ion-text-center">
     <ion-label id="titulo">{{serie.title}}</ion-label>
   </ion-item>
 
   <hr class="barra-abajo">
 
+  <!-- Slides con todas las imágenes de la serie -->
   <swiper [pagination]="true">
     <ng-template *ngFor="let image of serie.images" swiperSlide>
       <ion-img [src]="image" alt="Imagen del slide"></ion-img>
@@ -17,6 +19,7 @@
 
   <hr class="barra-arriba">
 
+  <!-- Las categorias a las que pertenece -->
   <ion-item color="secondary" class="ion-text-center">
     <ion-label class="categorias" *ngFor="let c of serie.categories">
       \{{c}}/
@@ -25,6 +28,7 @@
 
   <hr class="barra-medio">
 
+  <!-- Información general -->
   <ion-item color="secondary" class="ion-text-center">
     <ion-label class="categorias">Episodios: </ion-label><ion-label class="normal">{{serie.episodes}} </ion-label>
     <ion-label class="categorias">Año de emisión: </ion-label><ion-label class="normal">{{serie.year}}</ion-label>
@@ -40,8 +44,18 @@
 
   <hr class="barra-arriba">
 
-  <ion-button id="user-modal" expand="block">Abrir</ion-button>
+  <div class="score_container">
+    <img src="assets/shapes.svg" alt="Score">
+    <div class="centered">{{puntuacionMedia2()}}</div>
+  </div>
 
+  <hr class="barra-medio">
+
+  <ion-button id="user-modal" expand="block" color="success"><b>Puntua la serie</b></ion-button>
+
+  <hr class="barra-abajo">
+
+  <!-- Aquí empieza el HTML del formulario -->
   <ion-modal trigger="user-modal" (willDismiss)="onWillDismiss($event)">
     <ng-template>
 
@@ -96,5 +110,6 @@
 
     </ng-template>
   </ion-modal>
+  <!-- Aquí acaba el HTML del formulario -->
 
 </ion-content>
