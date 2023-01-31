@@ -62,16 +62,15 @@ export class SeriePage implements OnInit {
       total += user.score;
     });
     let media = total / this.serie.user_score.length;
-    let rounded = Math.round(media * 10) / 10;
-    return rounded;
+    return Math.round(media * 10) / 10;
   }
 
-  //Toast para el formulario
-  private async formToast() {
+  //Toast
+  private async presentToast(message: string, color: string) {
     const toast = await this.toastCtrl.create({
-      message: 'Puntuación añadida',
+      message,
       duration: 1500,
-      color: 'tertiary'
+      color
     });
     await toast.present();
   }
@@ -82,7 +81,18 @@ export class SeriePage implements OnInit {
   }
 
   onSubmit(){
-    this.modal.dismiss(null, 'confirm');
+    let submit = true;
+    this.serie.user_score.forEach((user) => {
+      if (user.email == this.usuario.email) {
+        this.presentToast('Ya existe una puntuación con ese correo', 'danger');
+        this.usuario.email = '';
+        submit = false;
+        return;
+      }
+    });
+    if (submit){
+      this.modal.dismiss(null, 'confirm');
+    }
   }
 
   onWillDismiss(event: any){
@@ -91,7 +101,7 @@ export class SeriePage implements OnInit {
       console.log(this.serie);
       this.serieService.updateSerie(this.serie._id, this.serie).subscribe();
       this.usuario = {email: '', score: 0};
-      this.formToast();
+      this.presentToast('Puntuación añadida', 'tertiary');
     }
   }
 }
