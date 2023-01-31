@@ -2,7 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {Serie} from "../../common/serie";
 import {SerieService} from "../../services/serie.service";
 import {ActivatedRoute} from "@angular/router";
-import {IonModal} from "@ionic/angular";
+import {IonModal, ToastController} from "@ionic/angular";
 
 @Component({
   selector: 'app-serie',
@@ -34,7 +34,9 @@ export class SeriePage implements OnInit {
       score: 0
     };
 
-  constructor(private serieService: SerieService, private activatedRoute: ActivatedRoute) { }
+  constructor(private serieService: SerieService,
+              private activatedRoute: ActivatedRoute,
+              private toastCtrl: ToastController) { }
 
   //Coge la serie que fue seleccionada
   ngOnInit(): void {
@@ -59,7 +61,19 @@ export class SeriePage implements OnInit {
     this.serie.user_score.forEach((user) => {
       total += user.score;
     });
-    return total / this.serie.user_score.length;
+    let media = total / this.serie.user_score.length;
+    let rounded = Math.round(media * 10) / 10;
+    return rounded;
+  }
+
+  //Toast para el formulario
+  private async formToast() {
+    const toast = await this.toastCtrl.create({
+      message: 'Puntuación añadida',
+      duration: 1500,
+      color: 'tertiary'
+    });
+    await toast.present();
   }
 
   //Funciones para el formulario
@@ -77,6 +91,7 @@ export class SeriePage implements OnInit {
       console.log(this.serie);
       this.serieService.updateSerie(this.serie._id, this.serie).subscribe();
       this.usuario = {email: '', score: 0};
+      this.formToast();
     }
   }
 }

@@ -1,16 +1,41 @@
+#titulo {
+  font-family: Georgia, sans-serif;
+  font-size: xxx-large;
+  font-weight: bolder;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.title-badge {
+  --padding-bottom: 0.3em;
+  --padding-top: 0.3em;
+  --padding-end: 0.3em;
+  --padding-start: 0.3em;
+  font-size: 2.5em;
+  font-family: Impact, sans-serif;
+}
+
+.bottom-badge {
+  margin: 8px auto;
+  display: block;
+  width: 44%;
+  --padding-bottom: 0.25em;
+  --padding-top: 0.25em;
+  --padding-end: 0.25em;
+  --padding-start: 0.25em;
+  --background: url(../../../assets/score.jpg) 0 0/100% 100% no-repeat;
+  border-radius: 50%;
+  font-size: 7em;
+  font-family: Impact, sans-serif;
+  color: #ffffff;
+}
+
 ion-img {
   height: 350px;
   text-align: center;
   display: block;
   margin: auto;
-}
-
-#titulo {
-  font-family: Georgia, sans-serif;
-  font-size: xxx-large;
-  text-align: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
 }
 
 .barra-abajo {

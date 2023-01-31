@@ -6,6 +6,7 @@
   <!-- Titulo en font diferente -->
   <ion-item color="secondary" class="ion-text-center">
     <ion-label id="titulo">{{serie.title}}</ion-label>
+    <ion-badge slot="end" class="title-badge">{{puntuacionMedia2()}}</ion-badge>
   </ion-item>
 
   <hr class="barra-abajo">
@@ -44,16 +45,16 @@
 
   <hr class="barra-arriba">
 
-  <div class="score_container">
-    <img src="assets/shapes.svg" alt="Score">
-    <div class="centered">{{puntuacionMedia2()}}</div>
-  </div>
+  <ion-badge class="bottom-badge ion-text-center">{{puntuacionMedia2()}}</ion-badge>
 
   <hr class="barra-medio">
 
   <ion-button id="user-modal" expand="block" color="success"><b>Puntua la serie</b></ion-button>
 
   <hr class="barra-abajo">
+
+
+
 
   <!-- Aquí empieza el HTML del formulario -->
   <ion-modal trigger="user-modal" (willDismiss)="onWillDismiss($event)">
@@ -111,5 +112,24 @@
     </ng-template>
   </ion-modal>
   <!-- Aquí acaba el HTML del formulario -->
+
+
+  <!-- Aquí empieza el HTML del fab -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="fabicon">
+      <ion-icon name="share-social-outline"></ion-icon>
+    </ion-fab-button>
+
+    <ion-fab-list side="start">
+      <ion-fab-button>
+        <ion-icon name="logo-twitter"></ion-icon>
+      </ion-fab-button>
+
+      <ion-fab-button>
+        <ion-icon name="logo-instagram"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+  <!-- Aquí acaba el HTML del fab -->
 
 </ion-content>

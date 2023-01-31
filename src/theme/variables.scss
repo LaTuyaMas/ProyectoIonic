@@ -98,6 +98,14 @@
   --ion-color-searchbar-contrast-rgb: 255, 255, 255;
   --ion-color-searchbar-shade: #b9fff4;
   --ion-color-searchbar-tint: #4ce8d1;
+
+  /** fabicon **/
+  --ion-color-fab: #4a19ff;
+  --ion-color-fab-rgb: 74, 25, 255;
+  --ion-color-fab-contrast: #ffffff;
+  --ion-color-fab-contrast-rgb: 255, 255, 255;
+  --ion-color-fab-shade: #5a2cff;
+  --ion-color-fab-tint: #3500ff;
 }
 
   .ion-color-toolbar {
@@ -125,6 +133,15 @@
     --ion-color-contrast-rgb: var(--ion-color-searchbar-contrast-rgb) !important;
     --ion-color-shade: var(--ion-color-searchbar-shade) !important;
     --ion-color-tint: var(--ion-color-searchbar-tint) !important;
+  }
+
+  .ion-color-fabicon {
+    --ion-color-base: var(--ion-color-fab) !important;
+    --ion-color-base-rgb: var(--ion-color-fab-rgb) !important;
+    --ion-color-contrast: var(--ion-color-fab-contrast) !important;
+    --ion-color-contrast-rgb: var(--ion-color-fab-contrast-rgb) !important;
+    --ion-color-shade: var(--ion-color-fab-shade) !important;
+    --ion-color-tint: var(--ion-color-fab-tint) !important;
   }
 
 @media (prefers-color-scheme: dark) {
