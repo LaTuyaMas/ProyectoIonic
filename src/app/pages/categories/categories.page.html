@@ -14,7 +14,7 @@
   <ion-list class="ion-padding">
     <ion-card *ngFor="let s of series" [routerLink]="['/tabs/serie/', s._id]">
       <ion-card-header color="success">
-        <ion-title class="ion-text-center"><b>{{s.title}}</b></ion-title>
+        <ion-title class="ion-text-center" id="titulo">{{s.title}}</ion-title>
       </ion-card-header>
 
       <ion-img src="{{s.images[0]}}"></ion-img>

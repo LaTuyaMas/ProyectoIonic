@@ -1,10 +1,11 @@
 #titulo {
   font-family: Georgia, sans-serif;
-  font-size: xxx-large;
+  font-size: 2.5em;
   font-weight: bolder;
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
+  padding-inline: 0;
 }
 
 .title-badge {
@@ -52,6 +53,8 @@ ion-img {
 .categorias {
   font-family: "Arial Black", sans-serif;
   font-size: large;
+  padding-inline: 0;
+  width: 100%;
 }
 
 .normal {
@@ -104,4 +107,10 @@ h2 {
 
 ion-content {
   --background: var(--ion-color-primary);
+}
+
+#user-modal {
+  font-size: 1.5em;
+  padding-top: 0;
+  padding-bottom: 0;
 }
