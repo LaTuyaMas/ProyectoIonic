@@ -35,7 +35,9 @@ export class CategoriesPage implements OnInit {
   listSeriesByCategorie(categorie: Categorie): void {
     this.series = [];
     this.serieService.getSerieList().subscribe(
-      (data: any) => {
+      (data: Serie[]) => {
+        console.log(data);
+        console.log(categorie);
         this.series = data.filter((serie: Serie) => serie.categories.includes(categorie.name));
       /*
         data.forEach((serie: Serie) => {

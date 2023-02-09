@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {IonInfiniteScroll} from "@ionic/angular";
+import {IonInfiniteScroll, LoadingController} from "@ionic/angular";
 import {Serie} from "../../common/serie";
 import {SerieService} from "../../services/serie.service";
 
@@ -12,33 +12,63 @@ export class InicioPage implements OnInit {
 
   @ViewChild(IonInfiniteScroll, {static: false})infiniteScroll!: IonInfiniteScroll
   series: Serie[] = [];
-  pages = 0;
+  serieArray: Serie[] = [];
+  currentPage = 0;
+  pages = 0
 
-  constructor(private serieService: SerieService) { }
+  constructor(private serieService: SerieService,
+              private loadingCrtl: LoadingController) { }
 
   ngOnInit(): void {
     this.listSeries();
+    this.loadSeries();
   }
 
   listSeries(): void {
     this.serieService.getSerieList().subscribe(
       (data: any) => {
-        this.series = data;
+        this.serieArray = data;
         this.pages = data.length;
       }
     );
   }
 
-  loadData(event: any) {
-    setTimeout(() => {
-      if (this.series.length >= this.pages) {
-        event.target.complete();
-        this.infiniteScroll.disabled = true;
-        return;
+  async loadSeries(event?: any) {
+    const loading = await this.loadingCrtl.create({
+      message: 'Cargando...',
+      spinner: 'lines'
+    });
+    await loading.present();
+
+    if (this.currentPage < this.pages) {
+      this.series.push(this.serieArray[this.currentPage]);
+      if (this.currentPage+1 < this.pages) {
+        this.series.push(this.serieArray[this.currentPage+1]);
+        if (this.currentPage+2 < this.pages) {
+          this.series.push(this.serieArray[this.currentPage+2]);
+        }
+        else {
+          this.dismissInfinite(event);
+        }
       }
-      const nuevoArray = Array(3);
-      this.series.push(...nuevoArray);
-      event.target.complete();
-    }, 1000);
+      else {
+        this.dismissInfinite(event);
+      }
+    }
+    else {
+      this.dismissInfinite(event);
+    }
+
+    loading.dismiss();
+  }
+
+  loadMore(event: any) {
+    this.currentPage += 3;
+    this.loadSeries(event);
+  }
+
+  dismissInfinite(event: any) {
+    event.target.complete();
+    this.infiniteScroll.disabled = true;
   }
 }
