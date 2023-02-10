@@ -22,10 +22,10 @@ export class SearchPage implements OnInit {
 
   ngOnInit() {
     this.serieService.getSerieList().subscribe(series => {
-      this.serieArray = series;
+      this.series = series;
       this.pages = series.length;
     });
-    this.loadSeries();
+    //this.loadSeries();
   }
 
   buscar(event: any) {
