@@ -60,14 +60,19 @@ export class InicioPage implements OnInit {
     }
 
     loading.dismiss();
+    event?.target.complete();
+    console.log("loading dismissed");
   }
 
   loadMore(event: any) {
     this.currentPage += 3;
+    console.log(this.currentPage);
+    console.log(this.pages);
     this.loadSeries(event);
   }
 
   dismissInfinite(event: any) {
+    console.log("dismissed");
     event.target.complete();
     this.infiniteScroll.disabled = true;
   }

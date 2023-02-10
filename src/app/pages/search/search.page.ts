@@ -59,6 +59,7 @@ export class SearchPage implements OnInit {
     }
 
     loading.dismiss();
+    event?.target.complete();
   }
 
   loadMore(event: any) {
