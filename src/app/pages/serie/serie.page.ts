@@ -44,7 +44,7 @@ export class SeriePage implements OnInit {
     this.serieService.getSerie(params['id']).subscribe((res:any) => {
       this.serie = res;
       console.log(this.serie);
-    })
+    });
   }
 
   //Las 2 puntuaciones medias devuelven lo mismo
