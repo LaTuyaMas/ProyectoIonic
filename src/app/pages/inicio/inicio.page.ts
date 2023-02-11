@@ -28,9 +28,20 @@ export class InicioPage implements OnInit {
     this.serieService.getSerieList().subscribe(
       (data: any) => {
         this.serieArray = data;
+        this.serieArray.sort(this.orderSeries);
         this.pages = data.length;
       }
     );
+  }
+
+  orderSeries( a: Serie, b: Serie ) {
+    if ( a.year < b.year ){
+      return 1;
+    }
+    if ( a.year > b.year ){
+      return -1;
+    }
+    return 0;
   }
 
   async loadSeries(event?: any) {
@@ -61,18 +72,14 @@ export class InicioPage implements OnInit {
 
     loading.dismiss();
     event?.target.complete();
-    console.log("loading dismissed");
   }
 
   loadMore(event: any) {
     this.currentPage += 3;
-    console.log(this.currentPage);
-    console.log(this.pages);
     this.loadSeries(event);
   }
 
   dismissInfinite(event: any) {
-    console.log("dismissed");
     event.target.complete();
     this.infiniteScroll.disabled = true;
   }

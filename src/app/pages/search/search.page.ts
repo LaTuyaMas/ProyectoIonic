@@ -23,9 +23,20 @@ export class SearchPage implements OnInit {
   ngOnInit() {
     this.serieService.getSerieList().subscribe(series => {
       this.series = series;
+      this.series.sort(this.orderSeries);
       this.pages = series.length;
     });
     //this.loadSeries();
+  }
+
+  orderSeries( a: Serie, b: Serie ) {
+    if ( a.year < b.year ){
+      return 1;
+    }
+    if ( a.year > b.year ){
+      return -1;
+    }
+    return 0;
   }
 
   buscar(event: any) {
